@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PostDataATagServletMapping Test</title>
+</head>
+<body>
+	<h2>&nbsp;&nbsp;&nbsp;&nbsp; PostDataATagServletMapping Test </h2>
+	
+	<!-- Client Form Data 를 Server Servlet 으로 Post방식 전송 -->
+	<!-- 주소창에 http://localhost:8080/Servlet/servlet01_GetPost/postDataATagServletMapping.html 라고 검색 -->
+	
+	<!-- <form method="Post" action='/Servlet/servlet01_GetPost/PostDataATagServletMapping'> --> <!-- 절대경로(실행O) -->
+	<form method="Post" action='../servlet01_GetPost/PostDataATagServletMapping'>                <!-- 상대경로(실행O) -->
+
+		이름 : <input type='text' name='name'><br/>
+		주소 : <input type='text' name='addr'><br/><p/>
+		
+		<input type='submit' value='전송' />
+		<input type='reset' value='취소' />
+
+	</form>
+</body>
+</html>
