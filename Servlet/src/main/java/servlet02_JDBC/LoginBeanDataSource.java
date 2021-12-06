@@ -9,12 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-// 5단계 : Connection Pool 사용 (VO는 재활용)
-// JDBC 절차 중 Connection 인스턴스 생성 및 관리는 이를 전담하는 Connection Pool 사용
+// 6단계 : Connection Pool을 SPEC화 한 javax.sql.DataSource 사용
 // oracle 11g를 사용해서 그런지 해당 실습 실행 불가
 
-//@WebServlet("/LoginBeanPool")
-public class LoginBeanPool extends HttpServlet {
+//@WebServlet("/LoginBenaDataSource")
+public class LoginBeanDataSource extends HttpServlet {
 	
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
@@ -28,12 +27,12 @@ public class LoginBeanPool extends HttpServlet {
 
 		// UserVO instance 생성 및 Client Form Data 전달(Binding)
 		UserVO userVO = new UserVO();
-		userVO.setId(id);   // Client Form Data 전달 (Binding)
-		userVO.setPwd(pwd); // Client Form Data 전달 (Binding)
+		userVO.setId(id);
+		userVO.setPwd(pwd);
 
-		// DB 접근 Data 검색 비교하여 UserVO.active true/false 변경
-		UserPoolDao userPoolDao = new UserPoolDao();
-		userPoolDao.getUser(userVO);
+		// DB 접근 Data 검색 비교 UserVO.active true/false 변경
+		UserDataSourceDao userDataSourceDao = new UserDataSourceDao();
+		userDataSourceDao.getUser(userVO);
 
 		out.println("<html>");
 		out.println("<head></head>");
@@ -47,7 +46,7 @@ public class LoginBeanPool extends HttpServlet {
 			out.print("Login 실패 id,pwd를 확인하세요.");
 		}
 
-		out.print("<p><p><a href='/Servlet/servlet02_JDBC/loginBeanPool.html'>뒤로</a>");
+		out.print("<p><p><a href='/Servlet/servlet02_JDBC/loginBeanDataSource.html'>뒤로</a>");
 		out.print("</body>");
 		out.print("</html>");
 	

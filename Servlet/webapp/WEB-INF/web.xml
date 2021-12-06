@@ -108,72 +108,72 @@
 	
 	<servlet>
 		<servlet-name>LoginBeanPool</servlet-name>
-		<servlet-class>jw04.LoginBeanPool</servlet-class>
+		<servlet-class>servlet02_JDBC.LoginBeanPool</servlet-class>
 	</servlet>
 	
 	<servlet>
 		<servlet-name>LoginBeanDataSource</servlet-name>
-		<servlet-class>jw04.LoginBeanDataSource</servlet-class>
+		<servlet-class>servlet02_JDBC.LoginBeanDataSource</servlet-class>
 	</servlet>
 	
 	<servlet>
 		<servlet-name>SessionUseCookieOne</servlet-name>
-		<servlet-class>jw05.SessionUseCookieOne</servlet-class>
+		<servlet-class>servlet03_CookieSession.SessionUseCookieOne</servlet-class>
 	</servlet>
 	
 	<servlet>
 		<servlet-name>CookieReaderToServer</servlet-name>
-		<servlet-class>jw05.CookieReaderToServer</servlet-class>
+		<servlet-class>servlet03_CookieSession.CookieReaderToServer</servlet-class>
 	</servlet>
 	
 	<servlet>
 		<servlet-name>CookieWriterToClient</servlet-name>
-		<servlet-class>jw05.CookieWriterToClient</servlet-class>
+		<servlet-class>servlet03_CookieSession.CookieWriterToClient</servlet-class>
 	</servlet>
 	
 	<servlet>
 		<servlet-name>LoginBeanDataSourceSession</servlet-name>
-		<servlet-class>jw05.LoginBeanDataSourceSession</servlet-class>
+		<servlet-class>servlet03_CookieSession.LoginBeanDataSourceSession</servlet-class>
 	</servlet>
 	
 	<servlet>
 		<servlet-name>SessionUseCookieTwo</servlet-name>
-		<servlet-class>jw05.SessionUseCookieTwo</servlet-class>
+		<servlet-class>servlet03_CookieSession.SessionUseCookieTwo</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>SessionUseCookieTwo</servlet-name>
-		<url-pattern>/SessionUseCookieTwo</url-pattern>
+		<url-pattern>/servlet03_CookieSession/SessionUseCookieTwo</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
 		<servlet-name>LoginBeanDataSourceSession</servlet-name>
-		<url-pattern>/LoginBeanDataSourceSession</url-pattern>
+		<url-pattern>/servlet03_CookieSession/LoginBeanDataSourceSession</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
 		<servlet-name>CookieWriterToClient</servlet-name>
-		<url-pattern>/CookieWriterToClient</url-pattern>
+		<url-pattern>/servlet03_CookieSession/CookieWriterToClient</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
 		<servlet-name>CookieReaderToServer</servlet-name>
-		<url-pattern>/CookieReaderToServer</url-pattern>
+		<url-pattern>/servlet03_CookieSession/CookieReaderToServer</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
 		<servlet-name>SessionUseCookieOne</servlet-name>
-		<url-pattern>/SessionUseCookieOne</url-pattern>
+		<url-pattern>/servlet03_CookieSession/SessionUseCookieOne</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
 		<servlet-name>LoginBeanDataSource</servlet-name>
-		<url-pattern>/LoginBeanDataSource</url-pattern>
+		<url-pattern>/servlet02_JDBC/LoginBeanDataSource</url-pattern>
 	</servlet-mapping>	
 	
 	<servlet-mapping>
 		<servlet-name>LoginBeanPool</servlet-name>
-		<url-pattern>/LoginBeanPool</url-pattern>
+		<url-pattern>/servlet02_JDBC/LoginBeanPool</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
@@ -261,16 +261,7 @@
 		<url-pattern>/FirstServlet</url-pattern>
 	</servlet-mapping>
 	
-	
-	<resource-ref>
-			<res-ref-name>jdbc/ora</res-ref-name>
-			<res-type>javax.sql.DataSource</res-type>
-			 <res-auth>Container</res-auth>
-	</resource-ref>
-	
-	<!-- http://ip/port/edu/FirstServlet -->
-    
-    <!-- <display-name>Day16_Servlet</display-name>
+    <display-name>Servlet</display-name>
     <welcome-file-list>
       <welcome-file>index.html</welcome-file>
       <welcome-file>index.htm</welcome-file>
@@ -278,6 +269,25 @@
       <welcome-file>default.html</welcome-file>
       <welcome-file>default.htm</welcome-file>
       <welcome-file>default.jsp</welcome-file>
-    </welcome-file-list> -->
+    </welcome-file-list>
+    
+    <!-- DataSource definition -->
+    <resource-ref>
+			<res-ref-name>jdbc/ora</res-ref-name>
+			<res-type>javax.sql.DataSource</res-type>
+			<res-auth>Container</res-auth>
+	</resource-ref>
+	
+	<!-- 선언적 예외처리, 에러 등록 -->
+	<error-page>
+		<error-code>405</error-code>
+		<location>/servlet03_CookieSession/405ErrorDisplay.html</location>
+	</error-page>
+	
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/servlet03_CookieSession/NullErrorDisplay</location>
+	</error-page>
+    
 
 </web-app>

@@ -13,8 +13,7 @@ public class DBUtil {
 	}
 	
 	//Method
-	public static Connection getConnection(String driverClassName,
-											String url, String id, String passwd ) {
+	public static Connection getConnection(String driverClassName, String url, String id, String passwd ) {
 		Connection con = null;
 		try {
 			Class.forName(driverClassName);
@@ -38,7 +37,7 @@ public class DBUtil {
 			if(con == null) {
 				con = getConnection("oracle.jdbc.driver.OracleDriver",
 									"jdbc:oracle:thin:@127.0.0.1:1521:xe",
-									"scott","tiger");
+									"scott","tiger123");
 			}
 		}
 		return con;

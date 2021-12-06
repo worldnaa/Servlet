@@ -9,19 +9,17 @@ import java.util.List;
 import connectionPool.common.dao.AbstractDao;
 import connectionPool.service.user.vo.UserVO;
 
-/* 
- * FileName : UserDao.java
- *  :: AbstarctDao 공유 회원관리 Service 담당 DAO
-*/
+// AbstarctDao 공유 회원관리 Service 담당 DAO
+
 public class  UserDao extends AbstractDao{
 	
-	///Field 
+	// Field 
 	
-	///constructor
+	// Constructor
 	public UserDao(){
 	}
 
-	///Method
+	// Method
 	public void getUser(UserVO userVO){
 		Connection con = null;
 		PreparedStatement pStmt = null;
@@ -31,7 +29,7 @@ public class  UserDao extends AbstractDao{
 			con = this.connect();
 			
             // 2단계 statement 
-			pStmt = con.prepareStatement("SELECT id , pwd FROM users WHERE id=? AND pwd=?");
+			pStmt = con.prepareStatement("SELECT user_id , password FROM users WHERE user_id=? AND password=?");
 			pStmt.setString(1,userVO.getId());
 			pStmt.setString(2,userVO.getPwd());
 
@@ -59,9 +57,7 @@ public class  UserDao extends AbstractDao{
 			con = this.connect();
 			
 			//2단계 statement 
-			pStmt = con.prepareStatement(	"INSERT " +
-																		"INTO users ( no, id, pwd) " +
-																		"VALUES( ? , ? , ? )" );
+			pStmt = con.prepareStatement("INSERT INTO users ( user_no, user_id, password ) VALUES( ? , ? , ? )" );
 			pStmt.setInt(1,userVO.getNo());
 			pStmt.setString(2,userVO.getId());
 			pStmt.setString(3,userVO.getPwd());
@@ -90,15 +86,15 @@ public class  UserDao extends AbstractDao{
 			con = this.connect();
 			
             // 2단계 statement 
-			pStmt = con.prepareStatement("SELECT no,id,pwd FROM users ORDER BY no");
+			pStmt = con.prepareStatement("SELECT user_no, user_id, password FROM users ORDER BY user_no");
 
 			//3단계 resultset
 			rs = pStmt.executeQuery();
 			while(rs.next()) {
 				UserVO userVO = new UserVO();
-				userVO.setNo(rs.getInt("no"));
-				userVO.setPwd(rs.getString("pwd"));
-				userVO.setId(rs.getString("id"));
+				userVO.setNo(rs.getInt("user_no"));
+				userVO.setPwd(rs.getString("password"));
+				userVO.setId(rs.getString("user_id"));
 				System.out.println(userVO);
 			}
 		}catch(Exception e){		

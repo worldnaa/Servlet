@@ -1,24 +1,22 @@
 package connectionPool.service.user.vo;
 
-/*
- *  FileName : UserVO.java
- *  ::  Client 의 From Data 를 Object Modeling 한 Bean
- *  ::  Data 만 갖는 객체 ==> Value Object  (Value Object Pattern)
- */
+// Client 의 From Data 를 Object Modeling 한 Bean
+// Data 만 갖는 객체 ==> Value Object  (Value Object Pattern)
+ 
 public class UserVO {
 
-	///Field
+	// Field
 	private String id;
 	private String pwd;
 	private boolean active;
 	private int no;
 	
-	///Constructor
+	// Constructor
 	public UserVO() {
 	}
 	
-	///Method
-	//getter/setter Method
+	// Method
+	// getter/setter Method
 	public String getId() {
 		return id;
 	}
