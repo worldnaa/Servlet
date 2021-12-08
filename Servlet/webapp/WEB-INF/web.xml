@@ -141,6 +141,16 @@
 		<servlet-class>servlet03_CookieSession.SessionUseCookieTwo</servlet-class>
 	</servlet>
 	
+	<!-- <servlet>
+		<servlet-name>ScriptTestResult</servlet-name>
+		<servlet-class>ScriptTestResult</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ScriptTestResult</servlet-name>
+		<url-pattern>/ScriptTestResult</url-pattern>
+	</servlet-mapping> -->
+	
 	<servlet-mapping>
 		<servlet-name>SessionUseCookieTwo</servlet-name>
 		<url-pattern>/servlet03_CookieSession/SessionUseCookieTwo</url-pattern>

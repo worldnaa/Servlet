@@ -70,7 +70,7 @@ public class LoginBeanDataSourceSession extends HttpServlet {
 			out.print("Login 실패 id,pwd를 확인하세요.");
 		}
 
-		out.print("<p><p><a href='/Servlet/servlet03_CookieSession/loginBeanDataSource.html'>뒤로</a>");
+		out.print("<p><p><a href='/Servlet/servlet03_CookieSession/loginBeanDataSourceSessionJavaScript.html'>뒤로</a>");
 		out.print("</body>");
 		out.print("</html>");
 	

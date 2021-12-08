@@ -9,17 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/*
- * FileName : NullErrorDisplay.java
- * :: java.lang.NullPointerException 발생시 처리하는 Servlet
- * :: web.xml /  <error-page> 에 등록
-*/
+// java.lang.NullPointerException 발생시 처리하는 Servlet
+// web.xml / <error-page> 에 등록
+
 //@WebServlet("/NullErrorDisplay")
 public class  NullErrorDisplay extends HttpServlet{
 
 	public void service(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException{
 
-		res.setContentType("text/html;charset=EUC-KR");
+		res.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = res.getWriter();
 
 		//==> java.lang.NullPointerException이 발생한 page를 정보를 display하면
