@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 
 import connectionPool.common.util.DBUtil;
 
+// 각각의 DAO 의 공통, 일반적 사항을 추상화한 공유 목적의 추상 DAO
+
 public abstract class AbstractDao {
 	//Field
 	//Constructor

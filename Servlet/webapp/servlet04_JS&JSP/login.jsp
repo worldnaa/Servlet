@@ -3,6 +3,7 @@
 <%@page import="connectionPool.service.user.vo.UserVO" %>
 <%@page import="connectionPool.service.user.dao.UserDao" %>
 
+<!-- 방어적 코딩 / WorkFlow Control -->
 <% if(request.getMethod().equals("GET")) {%>
 	<jsp:forward page="login.html"/>
 <% } %>

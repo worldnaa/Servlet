@@ -6,44 +6,62 @@ package connectionPool.service.user.vo;
 public class UserVO {
 
 	// Field
+	private int no;
 	private String id;
+	private String name;
 	private String pwd;
 	private boolean active;
-	private int no;
 	
 	// Constructor
 	public UserVO() {
 	}
-	
+
 	// Method
 	// getter/setter Method
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPwd() {
-		return pwd;
-	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
-	public boolean isActive() {
-		return active;
-	}
-	public void setActive(boolean active) {
-		this.active = active;
-	}
 	public int getNo() {
 		return no;
 	}
+
 	public void setNo(int no) {
 		this.no = no;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	@Override
 	public String toString() {
-		return "UserVO [id=" + id + ", pwd=" + pwd + ", active=" + active	+ ", no=" + no + "]";
+		return "UserVO [no=" + no + ", id=" + id + ", name=" + name + ", pwd=" + pwd + ", active=" + active + "]";
 	}
+	
 	
 }//end of class

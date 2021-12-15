@@ -57,10 +57,11 @@ public class  UserDao extends AbstractDao{
 			con = this.connect();
 			
 			//2단계 statement 
-			pStmt = con.prepareStatement("INSERT INTO users ( user_no, user_id, password ) VALUES( ? , ? , ? )" );
+			pStmt = con.prepareStatement("INSERT INTO users ( user_no, user_id, user_name, password ) VALUES( ? , ? , ? , ? )" );
 			pStmt.setInt(1,userVO.getNo());
 			pStmt.setString(2,userVO.getId());
-			pStmt.setString(3,userVO.getPwd());
+			pStmt.setString(3,userVO.getName());
+			pStmt.setString(4,userVO.getPwd());
 
 			//3단계 결과값 확인하기
 			if( 1 == pStmt.executeUpdate()){    

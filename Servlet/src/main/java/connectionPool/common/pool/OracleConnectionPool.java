@@ -20,6 +20,8 @@ public class OracleConnectionPool {
 	private int minConn = 5;  //보유할 connnection의 최소수
 	private int maxConn = 10; //보유할 connnection의 최대수
 	
+	
+// =============================== ojdbc6에서는 지원X ================================	
 	// Constructor
 	// ==> singleTon pattern 규칙 2 : 생성자는 private 선언 ::외부에서 생성불가
 	private OracleConnectionPool() {
@@ -65,5 +67,8 @@ public class OracleConnectionPool {
 	public int getCacheSize()		{		return occi.getCacheSize();	 	}
 	//실제로 Client에서 빌려간(사용중인) Connection 수	
 	public int getActiveSize()		{		return occi.getActiveSize();	}
+
+// ==============================================================================		
+	
 	
 }//end of class
