@@ -75,8 +75,9 @@ public class  UserDao extends AbstractDao{
 		return insertResult; 
 	}//end of addUser()
 	
-	public List<UserVO> getUserList(){
-		List<UserVO> arrayList = new ArrayList<UserVO>();
+	public ArrayList<UserVO> getUserList(){
+		
+		ArrayList<UserVO> arrayList = new ArrayList<UserVO>();
 		
 		Connection con = null;
 		PreparedStatement pStmt = null;
@@ -87,22 +88,33 @@ public class  UserDao extends AbstractDao{
 			con = this.connect();
 			
             // 2단계 statement 
-			pStmt = con.prepareStatement("SELECT user_no, user_id, password FROM users ORDER BY user_no");
+			pStmt = con.prepareStatement("SELECT user_no, user_id, user_name, password FROM users ORDER BY user_no");
 
-			//3단계 resultset
+			//3단계 resultset 결과처리
 			rs = pStmt.executeQuery();
+
+			// select 각각의 회원정보 UserVO 로 Binding
+			// 각각의 회원정보를 갖는 UserVO 를 ArrayList 에 저장
 			while(rs.next()) {
 				UserVO userVO = new UserVO();
 				userVO.setNo(rs.getInt("user_no"));
-				userVO.setPwd(rs.getString("password"));
 				userVO.setId(rs.getString("user_id"));
+				userVO.setName(rs.getString("user_name"));
+				userVO.setPwd(rs.getString("password"));
+				
+				// userVO에 저장된 정보 확인 (console 확인용)
 				System.out.println(userVO);
+				
+				// arrayList에 UserVO 인스턴스 add
+				arrayList.add(userVO);
 			}
+			
 		}catch(Exception e){		
 			e.printStackTrace();
 		}finally{
 			this.close(con, pStmt, rs);
 		}
+		System.out.println(arrayList);
 		return arrayList;
 	}
 
