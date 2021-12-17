@@ -9,7 +9,7 @@
 	 
 	 <!-- response.sendRedirect() 는 URL, URI, Relative URI 사용가능 -->
 	 <% //response.sendRedirect("09JSPActionForward.jsp"); %>
-	 <% response.sendRedirect("http://localhost:8080/Servlet/servlet04_JS&JSP/09JSPActionForward.jsp"); %>
+	 <% response.sendRedirect("http://localhost:8080/Servlet/servlet06_Navigation/09JSPActionForward.jsp"); %>
 	 <% //response.sendRedirect("http://www.daum.net"); %>
 	 
 	 <%-- <% response.sendRedirect("이동할 페이지"); %>  -  클라이언트가 새로 페이지를 요청한 것과 같은 방식으로 페이지가 이동된다
